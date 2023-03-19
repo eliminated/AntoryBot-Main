@@ -5,6 +5,7 @@ const d = require('discord.js');
 require('dotenv').config();
 const { Client, GatewayIntentBits, InteractionType, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
+const token = process.env.TOKEN;
 
 // Create new client instance
 
@@ -25,4 +26,4 @@ client.eventHandler();
 client.componentHandler();
 
 // Login to Discord with your app's token
-client.login(process.env.TOKEN);
+client.login(token);
