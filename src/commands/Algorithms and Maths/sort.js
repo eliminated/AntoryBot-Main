@@ -4,16 +4,12 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('sort')
         .setDescription('Sorts an array.')
-        .addIntegerOption(option => option.setName('list').setDescription('The array to sort.').setRequired(true)),
+        .addStringOption(option => option.setName('list').setDescription('The array to sort (comma-separated).').setRequired(true)),
     async execute(interaction, client) {
-        const list = interaction.options.getInteger('list');
-        // Integer combined like: '23149' can be sorted by using function
-        function sortNumber(combinedNumber) {
-            let sortedNumber = combinedNumber.split('').sort((a, b) => a - b);
-            return sortedNumber.join('');
-        }
-        let sorted = sortNumber(list.toString());
-        let sortedtoArray = sorted.split('');
-        await interaction.reply({ content: `Sorted: ${sorted}\n [${sortedtoArray.join(', ')}]` });
+        const list = interaction.options.getString('list');
+        const listArray = list.split(',').map(str => parseInt(str.trim())); // Split by commas, trim and parse each element
+        const sortedArray = listArray.sort((a, b) => a - b); // Sort the array
+        const sortedString = sortedArray.join(', '); // Join the sorted array back into a string
+        await interaction.reply({ content: `Sorted: ${sortedString}`, ephemeral: true });
     }
 }

@@ -6,7 +6,7 @@ const {
     ButtonStyle,
     ActionRowBuilder,
     SelectMenuBuilder,
-    SelectMenuOptionBuilder
+    StringSelectMenuOptionBuilder
 } = require('discord.js');      //  Shorter than one line.
 
 module.exports = {
@@ -18,13 +18,13 @@ module.exports = {
             .setCustomId(`rule-selector`)
             .setMinValues(1)
             .setMaxValues(1)        // User can only select one option.
-            .setOptions(new SelectMenuOptionBuilder({
+            .setOptions(new StringSelectMenuOptionBuilder({
                 label: '🗒️Text Channel Rules',
                 value: 'text-channel-rules',
-            }), new SelectMenuOptionBuilder({
+            }), new StringSelectMenuOptionBuilder({
                 label: '🔊Voice Channel Rules',
                 value: 'voice-channel-rules',
-            }), new SelectMenuOptionBuilder({
+            }), new StringSelectMenuOptionBuilder({
                 label: '💬Server Communication Rules',
                 value: 'server-communication-rules',
             }));
