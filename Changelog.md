@@ -16,3 +16,7 @@
 - Added 'quiz' command (Unstable release)
 - Added 'rules' command (Unstable release)
 - Added listener event
+
+## V 0.5.0
+
+- Overhaul and upgraded Discord.js versions 
