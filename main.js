@@ -1,3 +1,4 @@
+const keep_alive = require('./host.js');
 // This is discordjs v14.3.0
 // All codes from v13 are probably outdated
 
